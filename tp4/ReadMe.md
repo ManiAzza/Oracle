@@ -244,7 +244,7 @@ dev1;
 create role Dev;
 create role Test;
 create role DevSecOps;
-
+```
 ```sql
 GRANT 
 CREATE PROCEDURE,
@@ -256,6 +256,7 @@ SELECT ANY TABLE,
 ALTER ANY TABLE,
 DROP ANY TABLE
 TO Dev;
+```
 
 ```sql
 GRANT CONNECT,SELECT ANY TABLE,CREATE SESSION to Test;
@@ -270,24 +271,24 @@ GRANT ALL PRIVILEGES TO DevSecOps WITH ADMIN OPTION;
   
 
 ```sql
----GRANT Dev to dev1,dev2
+GRANT Dev to dev1,dev2
 ```
 ```sql
----GRANT Test to tester1,tester2;
+GRANT Test to tester1,tester2;
 ```
 ```sql
----GRANT DevSecOps to devsecops1,devsecops2;
+GRANT DevSecOps to devsecops1,devsecops2;
 ```
 
    - **Limiter l'accès pour les testeurs de sorte qu'ils n'accèdent qu'à la table des employés "EMP":** 
   
 
 ```sql
----REVOKE SELECT ANY TABLE from Test;
+REVOKE SELECT ANY TABLE from Test;
 ```
 
  ```sql
----GRANT select on emp to Test;
+GRANT select on emp to Test;
 ```
  
  
@@ -296,7 +297,7 @@ GRANT ALL PRIVILEGES TO DevSecOps WITH ADMIN OPTION;
   
 
  ```sql
----GRANT select on emp to public;
+GRANT select on emp to public;
 ```
 
 **Retirer les privilèges attribuées aux admins, ainsi que les utilisateurs qui ont reçu leurs privilèges sur la table EMP par un membre de l'équipe devsecops:**
@@ -304,7 +305,7 @@ GRANT ALL PRIVILEGES TO DevSecOps WITH ADMIN OPTION;
  
  
 ```sql
----REVOKE
+REVOKE
 ALL PRIVILEGES
 FROM devsecops;
 ```
@@ -324,7 +325,7 @@ FROM devsecops;
 
 
 ```sql 
----CREATE PROFILE devProfile 
+CREATE PROFILE devProfile 
 LIMIT
 SESSIONS_PER_USER UNLIMITED
 CPU_PER_SESSION 10000
@@ -351,7 +352,7 @@ PASSWORD_REUSE_TIME 10;
   * ***Durée de vie en jours du mot de passe:*** ***60***
   * ***Nombre maximal de réutilisations de mot de passe:*** ***10***
 ```sql 
----CREATE PROFILE testProfile
+CREATE PROFILE testProfile
 LIMIT
 SESSIONS_PER_USER 5
 CPU_PER_SESSION UNLIMITED
@@ -376,7 +377,7 @@ PASSWORD_REUSE_TIME 10;
   * ***Nombre maximal de réutilisations de mot de passe:*** ***10***
 
 ```sql 
----CREATE PROFILE devsecopsProfile 
+CREATE PROFILE devsecopsProfile 
 LIMIT
 SESSIONS_PER_USER UNLIMITED
 CPU_PER_SESSION UNLIMITED
@@ -391,6 +392,6 @@ PASSWORD_REUSE_TIME 10;
 
   - **Attribuer à l'utilisateur "dev1", le profile qui lui correspond:** 
 ```sql
----ALTER USER dev1 PROFILE devProfile;
+ALTER USER dev1 PROFILE devProfile;
 ```
 
