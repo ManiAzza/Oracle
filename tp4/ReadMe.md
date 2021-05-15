@@ -190,7 +190,7 @@ CREATE USER devsecops2 IDENTIFIED by devsecops2
      * Création,lecture, modification de structure et suppression de tables.
 
 ```sql
----GRANT
+GRANT
 CREATE PROCEDURE,
 CREATE VIEW,
 CREATE SEQUENCE,
@@ -208,7 +208,7 @@ TO dev1;
    - **Révoquer tous les privilèges associès à l'utilisateur dev1 :** 
 
 ```sql
----REVOKE 
+REVOKE 
 CREATE PROCEDURE,
 CREATE VIEW,
 CREATE SEQUENCE,
@@ -241,12 +241,12 @@ dev1;
      C) Le rôle de l'équipe DevSecOps permet d'avoir tous les privilèges avec mode administrateur de la base:  
 
 ```sql
----create role Dev;
+create role Dev;
 create role Test;
 create role DevSecOps;
 
 ```sql
----GRANT 
+GRANT 
 CREATE PROCEDURE,
 CREATE VIEW,
 CREATE SEQUENCE,
@@ -258,10 +258,10 @@ DROP ANY TABLE
 TO Dev;
 
 ```sql
----GRANT CONNECT,SELECT ANY TABLE,CREATE SESSION to Test;
+GRANT CONNECT,SELECT ANY TABLE,CREATE SESSION to Test;
 ```
 ```sql
----GRANT ALL PRIVILEGES TO DevSecOps WITH ADMIN OPTION;
+GRANT ALL PRIVILEGES TO DevSecOps WITH ADMIN OPTION;
 ```
 
 
