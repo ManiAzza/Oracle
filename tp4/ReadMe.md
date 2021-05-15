@@ -175,7 +175,7 @@ CREATE USER dev2 IDENTIFIED by dev2;
 CREATE USER tester1 IDENTIFIED by tester1;
 CREATE USER tester2 IDENTIFIED by tester2;
 CREATE USER devsecops1 IDENTIFIED by devsecops1;
-CREATE USER devsecops2 IDENTIFIED by devsecops2
+CREATE USER devsecops2 IDENTIFIED by devsecops2;
 ---
 ```
   --->  **Une fois qu'un utilisateur est créé, le DBA peut octroyer des privilèges de système spécifiques à cet utilisateur.**
@@ -271,7 +271,7 @@ GRANT ALL PRIVILEGES TO DevSecOps WITH ADMIN OPTION;
   
 
 ```sql
-GRANT Dev to dev1,dev2
+GRANT Dev to dev1,dev2;
 ```
 ```sql
 GRANT Test to tester1,tester2;
